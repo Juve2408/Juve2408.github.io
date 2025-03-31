@@ -1,7 +1,25 @@
 /*
  * Globals
  */
+main-title-box {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro semitransparente */
+    color: white;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Sombra exterior */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    margin: 20px 0;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
 
+/* Efecto hover opcional */
+.main-title-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.8);
 
 /* Custom default button */
 .btn-light,
