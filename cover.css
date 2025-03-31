@@ -24,6 +24,15 @@ body {
 .cover-container {
   max-width: 42em;
 }
+.center-text {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo negro con transparencia */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+}
 
 
 /*
