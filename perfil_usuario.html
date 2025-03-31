@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -9,14 +8,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             background-color: #f4f4f4;
         }
         .container {
-            width: 60%;
-            margin: auto;
-            background: white;
+            width: 80%;
+            margin: 20px auto;
             padding: 20px;
+            background: white;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
@@ -37,7 +35,6 @@
             background-size: cover;
             background-position: center;
             margin-right: 15px;
-            flex-shrink: 0;
         }
         .info {
             text-align: left;
@@ -45,38 +42,40 @@
         h2 {
             margin: 5px 0;
         }
-        .top-button {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: white;
-            padding: 10px;
+        nav {
+            background: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            z-index: 1000;
         }
-        .top-button a {
+        nav a {
+            color: #000;
             text-decoration: none;
-            color: black;
+            margin: 0 15px;
             font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-  <!-- barra de navegacion --!>
-<body class="d-flex h-100 text-center text-bg-dark bg-cover">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
-        <div>
-          <h3 class="float-md-start mb-0">Cover</h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
-            <a class="nav-link fw-bold py-1 px-0" href="referencia.html">Referencias</a>
-                  <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="perfil_usuario.html">Contact</a>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Equipo</a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="referencia.html">Referencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="perfil_usuario.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Lista de integrantes -->
     <div class="container">
         <div class="integrante">
-            <div class="icon" style="background-image: url('estasi.jfif');"></div> <!-- colocar imagen Mdx-->
+            <div class="icon" style="background-image: url('estasi.jfif');"></div>
             <div class="info">
                 <h2>Integrante No. 1</h2>
                 <p><strong>Matrícula:</strong> 185958</p>
@@ -88,7 +87,7 @@
         </div>
 
         <div class="integrante">
-            <div class="icon" style="background-image: url('fortnite_cat.jfif');"></div> <!-- colocar imagen Andrea-->
+            <div class="icon" style="background-image: url('fortnite_cat.jfif');"></div>
             <div class="info">
                 <h2>Integrante No. 2</h2>
                 <p><strong>Matrícula:</strong> 186458</p>
@@ -100,7 +99,7 @@
         </div>
 
         <div class="integrante">
-            <div class="icon" style="background-image: url('fotinaitiuwu.jpg');"></div> <!-- colocar imagen Osbaldo-->
+            <div class="icon" style="background-image: url('fotinaitiuwu.jpg');"></div>
             <div class="info">
                 <h2>Integrante No. 3</h2>
                 <p><strong>Matrícula:</strong> 186437</p>
@@ -112,7 +111,7 @@
         </div>
 
         <div class="integrante">
-            <div class="icon" style="background-image: url('imgf.jpg');"></div> <!-- colocar imagen Eduardo-->
+            <div class="icon" style="background-image: url('imgf.jpg');"></div>
             <div class="info">
                 <h2>Integrante No. 4</h2>
                 <p><strong>Matrícula:</strong> 186115</p>
@@ -123,12 +122,7 @@
             </div>
         </div>
     </div>
-      <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="index.html">HOME</a>
-    </div>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
 </body>
 </html>
