@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia de Fortnite Battle Royale</title>
+    <style>
+        /* Estilos generales */
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Teko:wght@700&display=swap');
+        
+        :root {
+            --primary: #FF4655;
+            --secondary: #1E90FF;
+            --dark: #0F1923;
+            --light: #F8F8F8;
+            --accent: #FFD700;
+        }
+        
+        body {
+            font-family: 'Barlow', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            background-image: url('https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt29d7c4f6bc077e9e/5eb26f54402b8b4d13a56656/9c3f6a6f6d862eb3b51d5a5b5e2632e8/EGS_Fortnite_BattleRoyale_ICON_Android_1920x1080-6d0eb8c4e63b9a02a5e3930d0c3b1a9e');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .overlay {
+            background-color: rgba(15, 25, 35, 0.9);
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        
+        h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0 var(--dark);
+            position: relative;
+            z-index: 2;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary), 0 0 40px var(--secondary);
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px var(--primary), 0 0 40px var(--primary), 0 0 50px var(--primary);
+            }
+        }
+        
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Secciones */
+        section {
+            background-color: rgba(30, 30, 40, 0.7);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            font-family: 'Teko', sans-serif;
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-family: 'Teko', sans-serif;
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        /* Imágenes */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .image-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Listas */
+        ul, ol {
+            padding-left: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: rgba(40, 40, 50, 0.7);
+        }
+        
+        th, td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid var(--primary);
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-family: 'Teko', sans-serif;
+            font-size: 1.2rem;
+        }
+        
+        tr:hover {
+            background-color: rgba(255, 70, 85, 0.1);
+        }
+        
+        /* Enlaces */
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .link-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .link-button:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        
+        /* Iframe */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        /* Efectos especiales */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <header>
+            <h1>Historia de Fortnite Battle Royale</h1>
+        </header>
+        
+        <div class="container">
+            <section class="pulse">
+                <h2>Los Orígenes del Battle Royale</h2>
+                <div class="image-grid">
+                    <div class="image-container">
+                        <img src="https://cdn2.unrealengine.com/fortnite-chapter-5-season-3-1920x1080-3f9df6820e00.jpg" alt="Fortnite Battle Royale inicial">
+                        <div class="image-caption">Primera temporada de Fortnite BR</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://cdn2.unrealengine.com/egs-fortnite-battleroyale-ic1-400x400-37c73610d8c6.jpg" alt="Mapa original">
+                        <div class="image-caption">Mapa original de Fortnite</div>
+                    </div>
+                </div>
+                
+                <p>Fortnite Battle Royale fue lanzado en septiembre de 2017 como un modo gratuito del juego base Fortnite, que originalmente era un juego de supervivencia cooperativo contra zombis (Save the World). El modo Battle Royale se inspiró en el éxito de juegos como PlayerUnknown's Battlegrounds (PUBG), pero con el estilo único y colorido de Epic Games.</p>
+                
+                <p>El concepto era simple: 100 jugadores caen en una isla, buscan armas y recursos, y luchan hasta que solo queda uno en pie. Lo que hizo especial a Fortnite fue su sistema de construcción, que añadió una capa estratégica completamente nueva al género.</p>
+                
+                <p>En sus primeras semanas, Fortnite Battle Royale atrajo a más de 10 millones de jugadores, superando todas las expectativas de Epic Games. El juego era accesible, gratuito y disponible en múltiples plataformas, lo que contribuyó a su rápido crecimiento.</p>
+                
+                <h3>Características clave del lanzamiento:</h3>
+                <ul>
+                    <li>Mapa de 5.5 km² con diversas ubicaciones</li>
+                    <li>Sistema de construcción con madera, piedra y metal</li>
+                    <li>Armas con diferentes rarezas (común, poco común, rara, épica, legendaria)</li>
+                    <li>Tormenta que reduce el área de juego con el tiempo</li>
+                    <li>Compatibilidad multiplataforma</li>
+                </ul>
+                
+                <div class="links-container">
+                    <a href="https://www.epicgames.com/fortnite" class="link-button" target="_blank">Sitio Oficial</a>
+                    <a href="https://fortnite.fandom.com/wiki/Fortnite_Battle_Royale" class="link-button" target="_blank">Wiki de Fortnite</a>
+                    <a href="https://www.twitch.tv/directory/game/Fortnite" class="link-button" target="_blank">Ver en Twitch</a>
+                    <a href="https://www.youtube.com/fortnite" class="link-button" target="_blank">YouTube</a>
+                    <a href="https://twitter.com/FortniteGame" class="link-button" target="_blank">Twitter Oficial</a>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Evolución del Juego</h2>
+                <div class="image-grid">
+                    <div class="image-container">
+                        <img src="https://cdn2.unrealengine.com/fortnite-chapter-5-key-art-3840x2160-aa063b8d6c6d.jpg" alt="Evolución del mapa">
+                        <div class="image-caption">Cambios en el mapa a través de las temporadas</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://cdn2.unrealengine.com/egs-fortnite-chapter5s3-carousel-desktop-1920x1080-1920x1080-5f8c1a3f6c1c.jpg" alt="Nuevas mecánicas">
+                        <div class="image-caption">Nuevas mecánicas de juego</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://cdn2.unrealengine.com/egs-fortnite-skins-carousel-desktop-1920x1080-1920x1080-1e3c8a4b4f3e.jpg" alt="Personajes">
+                        <div class="image-caption">Diversidad de personajes</div>
+                    </div>
+                </div>
+                
+                <p>Fortnite Battle Royale introdujo el concepto de "temporadas", cada una con su propia narrativa, cambios en el mapa y nuevos contenidos. La Temporada 2 (Febrero 2018) marcó el comienzo del Pase de Batalla, un sistema de recompensas que se ha convertido en estándar para muchos juegos.</p>
+                
+                <p>Con el tiempo, el juego ha experimentado cambios radicales, incluyendo:</p>
+                <ol>
+                    <li>Eventos en vivo que cambiaban permanentemente el mapa</li>
+                    <li>Colaboraciones con franquicias como Marvel, Star Wars y DC</li>
+                    <li>Introducción de vehículos y nuevas mecánicas de juego</li>
+                    <li>Modos de juego temporales y limitados</li>
+                    <li>Sistema competitivo con torneos y premios en efectivo</li>
+                </ol>
+                
+                <p>Uno de los momentos más memorables fue el "Evento del Agujero Negro" en octubre de 2019, donde el juego desapareció por completo durante dos días antes de renacer con un nuevo mapa en el Capítulo 2.</p>
+                
+                <table>
+                    <tr>
+                        <th>Capítulo</th>
+                        <th>Año</th>
+                        <th>Cambios principales</th>
+                    </tr>
+                    <tr>
+                        <td>Capítulo 1</td>
+                        <td>2017-2019</td>
+                        <td>Mapa original, primeras 10 temporadas</td>
+                    </tr>
+                    <tr>
+                        <td>Capítulo 2</td>
+                        <td>2019-2021</td>
+                        <td>Nuevo mapa, natación, pesca, IA</td>
+                    </tr>
+                    <tr>
+                        <td>Capítulo 3</td>
+                        <td>2021-2022</td>
+                        <td>Deslizamiento, tormentas de arena</td>
+                    </tr>
+                    <tr>
+                        <td>Capítulo 4</td>
+                        <td>2022-2023</td>
+                        <td>Realidad Unreal, genética</td>
+                    </tr>
+                    <tr>
+                        <td>Capítulo 5</td>
+                        <td>2023-presente</td>
+                        <td>Modificaciones de armas, NPCs</td>
+                    </tr>
+                </table>
+                
+                <div class="links-container">
+                    <a href="https://www.epicgames.com/fortnite/competitive/esports" class="link-button" target="_blank">Competitivo</a>
+                    <a href="https://fn.gg/" class="link-button" target="_blank">Noticias Fortnite</a>
+                    <a href="https://fortnitetracker.com/" class="link-button" target="_blank">Estadísticas</a>
+                    <a href="https://www.reddit.com/r/FortNiteBR/" class="link-button" target="_blank">Comunidad Reddit</a>
+                    <a href="https://www.epicgames.com/fortnite/news" class="link-button" target="_blank">Noticias Oficiales</a>
+                </div>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/WJW-bzXZM8M" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Impacto Cultural</h2>
+                <p>Fortnite ha trascendido el mundo de los videojuegos para convertirse en un fenómeno cultural. Sus emotes de baile han sido imitados por atletas profesionales y celebridades, y ha sido tema de controversias y debates sobre su impacto en los jóvenes.</p>
+                
+                <p>El juego ha generado una economía digital floreciente, con skins (disfraces) y objetos cosméticos que son altamente valorados. Algunos artículos raros pueden alcanzar valores de cientos de dólares en mercados secundarios.</p>
+                
+                <p>Además, Fortnite ha sido pionero en los "conciertos virtuales", con presentaciones de artistas como Travis Scott, Marshmello y Ariana Grande que atraen a millones de jugadores simultáneamente dentro del juego.</p>
+                
+                <h3>Datos interesantes:</h3>
+                <ul>
+                    <li>Récord de 15.3 millones de jugadores simultáneos en el evento de Travis Scott</li>
+                    <li>Generó $9 mil millones de dólares en ingresos en sus primeros dos años</li>
+                    <li>Tiene más de 350 millones de jugadores registrados</li>
+                    <li>Los torneos han ofrecido premios superiores a $30 millones</li>
+                </ul>
+                
+                <div class="image-grid">
+                    <div class="image-container">
+                        <img src="https://cdn2.unrealengine.com/egs-fortnite-concert-carousel-desktop-1920x1080-1920x1080-9a6c5a9b9d1f.jpg" alt="Concierto en Fortnite">
+                        <div class="image-caption">Concierto de Travis Scott</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://cdn2.unrealengine.com/egs-fortnite-collab-carousel-desktop-1920x1080-1920x1080-4d5a3a5a5f3e.jpg" alt="Colaboraciones">
+                        <div class="image-caption">Colaboraciones con Marvel</div>
+                    </div>
+                </div>
+                
+                <div class="links-container">
+                    <a href="https://www.theverge.com/2020/4/23/21232401/fortnite-travis-scott-concert-astronomical-live-report" class="link-button" target="_blank">Artículo sobre conciertos</a>
+                    <a href="https://www.washingtonpost.com/video-games/2020/05/05/fortnite-drake-ninja-twitch-record/" class="link-button" target="_blank">Fortnite en los medios</a>
+                    <a href="https://www.cnbc.com/fortnite/" class="link-button" target="_blank">Impacto económico</a>
+                    <a href="https://www.nytimes.com/interactive/2019/12/05/style/fortnite-dances.html" class="link-button" target="_blank">Emotes famosos</a>
+                    <a href="https://www.bbc.com/news/technology-45106396" class="link-button" target="_blank">Controversias</a>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>© 2023 Historia de Fortnite Battle Royale - Todos los derechos reservados a Epic Games</p>
+        </footer>
+    </div>
+</body>
+</html>
