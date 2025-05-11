@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite: Colaboraciones Especiales</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF4655;
+            --primary-dark: #cc2a39;
+            --secondary: #1E90FF;
+            --dark: #0F1923;
+            --light: #F8F8F8;
+            --accent: #FFD700;
+            --gray: #2A2A2A;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding-top: 56px;
+        }
+
+        .teko-font {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(15, 25, 35, 0.8), rgba(15, 25, 35, 0.8)), url('images/fortnite-collab-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .btn-fortnite {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-fortnite:hover {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .table-custom {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .table-custom thead {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .collab-badge {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .marvel { background-color: #ED1D24; }
+        .starwars { background-color: #FFE81F; color: #000; }
+        .dc { background-color: #0078F0; }
+        .travis { background-color: #7B5BE6; }
+        .naruto { background-color: #E67B23; }
+        .dragonball { background-color: #FF7324; }
+    </style>
+</head>
+<body>
+    <header data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand teko-font" href="index.html">FORTNITE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item"><a class="nav-link" href="d.html">Resumen</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Historia</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Desarrollo</a></li>
+                                <li><a class="dropdown-item" href="Hbatleroyale.html">Battle Royale</a></li>
+                                <li><a class="dropdown-item" href="#">Capítulos y Temporadas</a></li>
+                                <li><a class="dropdown-item" href="eventos importantes.html">Eventos importantes</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Modos de juego</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="btleroyale.html">Battle Royale</a></li>
+                                <li><a class="dropdown-item" href="salvar_al_mundo.html">Salvar el mundo</a></li>
+                                <li><a class="dropdown-item" href="modocreativo.html">Creative</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personajes</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="personaskins.html">Skins populares</a></li>
+                                <li><a class="dropdown-item active" href="#">Colaboraciones</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contenido</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="armas.html">Armas</a></li>
+                                <li><a class="dropdown-item" href="mapas.html">Mapas</a></li>
+                                <li><a class="dropdown-item" href="#">Eventos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Redes sociales</a></li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-light me-2" type="button">Iniciar sesión</button>
+                        <button class="btn btn-fortnite" type="button">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="teko-font display-4 mb-3">COLABORACIONES ESPECIALES</h1>
+            <p class="lead">Descubre los crossover más épicos de Fortnite con otras franquicias</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="gaming" class="mb-5">
+            <h2 class="section-title teko-font">Colaboraciones de Videojuegos</h2>
+            <p class="mb-4">Fortnite ha unido fuerzas con algunos de los personajes más icónicos de la historia de los videojuegos. Estas colaboraciones han traído skins, armas y hasta modos de juego especiales.</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/collab-masterchief.jpg" class="card-img-top" alt="Master Chief">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Halo</h5>
+                            <p class="card-text">El legendario Master Chief llegó a Fortnite junto con armas temáticas y un modo de juego especial.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge">Xbox</span>
+                                <small class="text-muted">Temporada 5 Cap. 2</small>
+                            </div>
+                            <a href="#" class="btn btn-fortnite">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/collab-kratos.jpg" class="card-img-top" alt="Kratos">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">God of War</h5>
+                            <p class="card-text">Kratos de God of War llegó con su icónica hoja del caos y armadura espartana.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge">PlayStation</span>
+                                <small class="text-muted">Temporada 5 Cap. 2</small>
+                            </div>
+                            <a href="#" class="btn btn-fortnite">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/collab-lara.jpg" class="card-img-top" alt="Lara Croft">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Tomb Raider</h5>
+                            <p class="card-text">Lara Croft en sus versiones clásica y moderna, con arco y equipo de exploración.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge">Square Enix</span>
+                                <small class="text-muted">Temporada 6 Cap. 2</small>
+                            </div>
+                            <a href="#" class="btn btn-fortnite">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="movies" class="mb-5">
+            <h2 class="section-title teko-font">Colaboraciones de Películas y TV</h2>
+            <p class="mb-4">El mundo del entretenimiento también ha dejado su marca en Fortnite con personajes memorables de películas y series de televisión.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="images/collab-marvel.jpg" class="card-img-top" alt="Marvel">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Universo Marvel</h5>
+                            <p class="card-text">Desde Thanos hasta Spider-Man, el UCM ha tenido múltiples colaboraciones con skins, eventos y hasta un mapa especial.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge marvel">Marvel</span>
+                                <small class="text-muted">Varias temporadas</small>
+                            </div>
+                            <a href="#" class="btn btn-fortnite">Ver personajes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="images/collab-starwars.jpg" class="card-img-top" alt="Star Wars">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Star Wars</h5>
+                            <p class="card-text">Sables de luz, stormtroopers y hasta un evento especial con el estreno de nuevas películas.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge starwars">Star Wars</span>
+                                <small class="text-muted">Temporada 1 Cap. 2</small>
+                            </div>
+                            <a href="#" class="btn btn-fortnite">Ver personajes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/collab-johnwick.jpg" class="card-img-top" alt="John Wick">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">John Wick</h5>
+                            <p class="card-text">El Baba Yaga llegó a Fortnite con su traje negro y habilidades letales.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge">Lionsgate</span>
+                                <small class="text-muted">Temporada 9 Cap. 1</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/collab-dc.jpg" class="card-img-top" alt="DC Comics">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">DC Comics</h5>
+                            <p class="card-text">Batman, Harley Quinn, Flash y más héroes y villanos de DC han aparecido en el juego.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge dc">DC</span>
+                                <small class="text-muted">Varias temporadas</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/collab-stranger.jpg" class="card-img-top" alt="Stranger Things">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Stranger Things</h5>
+                            <p class="card-text">El Upside Down llegó a Fortnite con skins de los personajes y referencias a la serie.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge">Netflix</span>
+                                <small class="text-muted">Temporada 9 Cap. 1</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="music" class="mb-5">
+            <h2 class="section-title teko-font">Colaboraciones Musicales</h2>
+            <p class="mb-4">Fortnite se ha convertido en un escenario virtual para algunos de los artistas más importantes del mundo, con conciertos y skins exclusivas.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="images/collab-travis.jpg" class="card-img-top" alt="Travis Scott">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Travis Scott</h5>
+                            <p class="card-text">El evento "Astronomical" fue un concierto épico con más de 12 millones de jugadores asistentes.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge travis">Cactus Jack</span>
+                                <small class="text-muted">Abril 2020</small>
+                            </div>
+                            <a href="#" class="btn btn-fortnite">Ver evento</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="images/collab-marshmello.jpg" class="card-img-top" alt="Marshmello">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Marshmello</h5>
+                            <p class="card-text">El primer gran concierto en Fortnite que marcó un antes y después en los eventos digitales.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge">DJ Set</span>
+                                <small class="text-muted">Febrero 2019</small>
+                            </div>
+                            <a href="#" class="btn btn-fortnite">Ver evento</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="anime" class="mb-5">
+            <h2 class="section-title teko-font">Colaboraciones de Anime</h2>
+            <p class="mb-4">El mundo del anime también ha dejado su huella en Fortnite con personajes icónicos y estilos únicos.</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/collab-naruto.jpg" class="card-img-top" alt="Naruto">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Naruto</h5>
+                            <p class="card-text">Naruto, Sasuke, Sakura y Kakashi con técnicas especiales y kunais como armas.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge naruto">Shonen Jump</span>
+                                <small class="text-muted">Noviembre 2021</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/collab-dragonball.jpg" class="card-img-top" alt="Dragon Ball">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Dragon Ball</h5>
+                            <p class="card-text">Goku, Vegeta, Beerus y más con esferas del dragón y ataques especiales.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge dragonball">Shonen Jump</span>
+                                <small class="text-muted">Agosto 2022</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/collab-attack.jpg" class="card-img-top" alt="Attack on Titan">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Attack on Titan</h5>
+                            <p class="card-text">Eren, Mikasa y Levi con equipo de maniobras tridimensionales.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="collab-badge">Kodansha</span>
+                                <small class="text-muted">Marzo 2023</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="timeline" class="mb-5">
+            <h2 class="section-title teko-font">Línea de Tiempo de Colaboraciones</h2>
+            <p class="mb-4">Un recorrido por las colaboraciones más importantes en la historia de Fortnite.</p>
+            
+            <div class="table-responsive">
+                <table class="table table-custom table-hover">
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Colaboración</th>
+                            <th>Tipo</th>
+                            <th>Elementos destacados</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>Infinity War (Thanos)</td>
+                            <td>Película</td>
+                            <td>Modo LTM, Guantelete</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>Marshmello</td>
+                            <td>Música</td>
+                            <td>Concierto en vivo</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>Travis Scott</td>
+                            <td>Música</td>
+                            <td>Concierto Astronomical</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>Naruto</td>
+                            <td>Anime</td>
+                            <td>4 skins, kunais</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>Dragon Ball</td>
+                            <td>Anime</td>
+                            <td>Nube voladora, Kamehameha</td>
+                        </tr>
+                        <tr>
+                            <td>2023</td>
+                            <td>Attack on Titan</td>
+                            <td>Anime</td>
+                            <td>Equipo de maniobras</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-4">
+                <h3 class="teko-font mb-3">Video de Colaboraciones</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/xyWrX7dW4_4" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="teko-font mb-3">Fortnite Colabs</h5>
+                    <p>Fan site no oficial sobre las colaboraciones de Fortnite. Todos los derechos reservados a Epic Games y respectivos propietarios.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="teko-font mb-3">Categorías</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#gaming" class="text-white">Videojuegos</a></li>
+                        <li><a href="#movies" class="text-white">Películas/TV</a></li>
+                        <li><a href="#music" class="text-white">Música</a></li>
+                        <li><a href="#anime" class="text-white">Anime</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="teko-font mb-3">Redes Sociales</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2023 Fortnite Colabs. No afiliado con Epic Games.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Botón para volver arriba
+        window.addEventListener('scroll', function() {
+            var backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Scroll suave para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Efecto hover para tarjetas
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+            });
+        });
+    </script>
+</body>
+</html>
