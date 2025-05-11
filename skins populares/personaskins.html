@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skins de Fortnite: Populares, Polémicas y Curiosidades</title>
+    <style>
+        /* Estilos generales */
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Teko:wght@700&display=swap');
+        
+        :root {
+            --primary: #FF4655;
+            --secondary: #1E90FF;
+            --dark: #0F1923;
+            --light: #F8F8F8;
+            --accent: #FFD700;
+            --rare: #B8860B;
+            --epic: #9370DB;
+            --legendary: #FF8C00;
+        }
+        
+        body {
+            font-family: 'Barlow', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            background-image: url('images/fortnite-bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .overlay {
+            background-color: rgba(15, 25, 35, 0.95);
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        
+        h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0 var(--dark);
+            position: relative;
+            z-index: 2;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary), 0 0 40px var(--secondary);
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px var(--primary), 0 0 40px var(--primary), 0 0 50px var(--primary);
+            }
+        }
+        
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Secciones */
+        section {
+            background-color: rgba(30, 30, 40, 0.8);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            font-family: 'Teko', sans-serif;
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-family: 'Teko', sans-serif;
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        /* Imágenes */
+        .skin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .skin-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(40,40,50,0.8), rgba(20,20,30,0.9));
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .skin-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            border-color: var(--accent);
+        }
+        
+        .skin-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .skin-info {
+            padding: 0.8rem;
+        }
+        
+        .skin-name {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+        
+        .skin-rarity {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .common { background-color: #5E5E5E; color: white; }
+        .uncommon { background-color: #2E8B57; color: white; }
+        .rare { background-color: var(--rare); color: white; }
+        .epic { background-color: var(--epic); color: white; }
+        .legendary { background-color: var(--legendary); color: white; }
+        
+        .skin-price {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: var(--accent);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        /* Listas */
+        ul, ol {
+            padding-left: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: rgba(40, 40, 50, 0.7);
+        }
+        
+        th, td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid var(--primary);
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-family: 'Teko', sans-serif;
+            font-size: 1.2rem;
+        }
+        
+        tr:hover {
+            background-color: rgba(255, 70, 85, 0.1);
+        }
+        
+        /* Enlaces */
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .link-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .link-button:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        
+        /* Iframe */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        /* Efectos especiales */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .rarity-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .rarity-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .rarity-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 1rem;
+            }
+            
+            .skin-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <header>
+            <h1>Skins de Fortnite</h1>
+        </header>
+        
+        <div class="container">
+            <section class="pulse">
+                <h2>Skins Más Populares</h2>
+                
+                <div class="rarity-legend">
+                    <div class="rarity-item">
+                        <div class="rarity-color common"></div>
+                        <span>Común</span>
+                    </div>
+                    <div class="rarity-item">
+                        <div class="rarity-color uncommon"></div>
+                        <span>Poco Común</span>
+                    </div>
+                    <div class="rarity-item">
+                        <div class="rarity-color rare"></div>
+                        <span>Rara</span>
+                    </div>
+                    <div class="rarity-item">
+                        <div class="rarity-color epic"></div>
+                        <span>Épica</span>
+                    </div>
+                    <div class="rarity-item">
+                        <div class="rarity-color legendary"></div>
+                        <span>Legendaria</span>
+                    </div>
+                </div>
+                
+                <div class="skin-grid">
+                    <div class="skin-card">
+                        <div class="skin-price">2,000 V-Bucks</div>
+                        <img src="images/renegade-raider.jpg" alt="Renegade Raider">
+                        <div class="skin-info">
+                            <div class="skin-name">Renegade Raider</div>
+                            <span class="skin-rarity rare">Rara</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skin-card">
+                        <div class="skin-price">1,500 V-Bucks</div>
+                        <img src="images/skull-trooper.jpg" alt="Skull Trooper">
+                        <div class="skin-info">
+                            <div class="skin-name">Skull Trooper</div>
+                            <span class="skin-rarity epic">Épica</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skin-card">
+                        <div class="skin-price">2,000 V-Bucks</div>
+                        <img src="images/galaxy.jpg" alt="Galaxy">
+                        <div class="skin-info">
+                            <div class="skin-name">Galaxy</div>
+                            <span class="skin-rarity legendary">Legendaria</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skin-card">
+                        <div class="skin-price">1,200 V-Bucks</div>
+                        <img src="images/aura.jpg" alt="Aura">
+                        <div class="skin-info">
+                            <div class="skin-name">Aura</div>
+                            <span class="skin-rarity uncommon">Poco Común</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Las skins más populares de Fortnite suelen ser aquellas que tienen un diseño único o que fueron disponibles por tiempo limitado. Renegade Raider, por ejemplo, solo estuvo disponible en la Temporada 1 y es considerada una de las skins más raras y valiosas.</p>
+                
+                <h3>Top 5 skins más usadas:</h3>
+                <ol>
+                    <li>Renegade Raider (Temporada 1)</li>
+                    <li>Black Knight (Temporada 2)</li>
+                    <li>Skull Trooper (Halloween 2017)</li>
+                    <li>John Wick (Colaboración)</li>
+                    <li>Peely (Temporada 8)</li>
+                </ol>
+                
+                <div class="links-container">
+                    <a href="https://fortnite.fandom.com/wiki/Cosmetics/Outfits" class="link-button" target="_blank">Todas las Skins</a>
+                    <a href="https://fnbr.co/shop" class="link-button" target="_blank">Tienda Actual</a>
+                    <a href="https://www.reddit.com/r/FortniteFashion/" class="link-button" target="_blank">Comunidad de Moda</a>
+                    <a href="https://fortnite.gg/skins" class="link-button" target="_blank">Catálogo Completo</a>
+                    <a href="https://www.epicgames.com/fortnite/cosmetics" class="link-button" target="_blank">Oficial</a>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Skins Polémicas y Curiosidades</h2>
+                
+                <div class="skin-grid">
+                    <div class="skin-card">
+                        <div class="skin-price">1,500 V-Bucks</div>
+                        <img src="images/travis-scott.jpg" alt="Travis Scott">
+                        <div class="skin-info">
+                            <div class="skin-name">Travis Scott</div>
+                            <span class="skin-rarity epic">Épica</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skin-card">
+                        <div class="skin-price">N/A</div>
+                        <img src="images/ninja.jpg" alt="Ninja">
+                        <div class="skin-info">
+                            <div class="skin-name">Ninja</div>
+                            <span class="skin-rarity legendary">Legendaria</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skin-card">
+                        <div class="skin-price">Retirada</div>
+                        <img src="images/rapscallion.jpg" alt="Skin polémica">
+                        <div class="skin-info">
+                            <div class="skin-name">Rapscallion</div>
+                            <span class="skin-rarity rare">Rara</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skin-card">
+                        <div class="skin-price">8,000 V-Bucks</div>
+                        <img src="images/ultimate-pack.jpg" alt="Pack Ultimate">
+                        <div class="skin-info">
+                            <div class="skin-name">Ultimate Pack</div>
+                            <span class="skin-rarity legendary">Legendaria</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Algunas skins han generado controversia por diversos motivos. La skin de Travis Scott fue retirada temporalmente tras la tragedia en su concierto real. Otras skins como Rapscallion fueron acusadas de promover estereotipos negativos.</p>
+                
+                <h3>Datos curiosos:</h3>
+                <ul>
+                    <li>La skin "Renegade Raider" puede venderse por más de $1,000 en cuentas secundarias</li>
+                    <li>Ninja fue el primer streamer en tener su propia skin oficial</li>
+                    <li>El pack Ultimate fue la skin más cara, costando aproximadamente $80</li>
+                    <li>Algunas skins cambian de aspecto durante la partida (como Peely que se convierte en esqueleto)</li>
+                    <li>Las skins de colaboración (Marvel, Star Wars) son las más buscadas</li>
+                </ul>
+                
+                <table>
+                    <tr>
+                        <th>Skin</th>
+                        <th>Precio Original</th>
+                        <th>Valor Actual</th>
+                        <th>Disponibilidad</th>
+                    </tr>
+                    <tr>
+                        <td>Renegade Raider</td>
+                        <td>1,200 V-Bucks</td>
+                        <td>$1,000+</td>
+                        <td>Temporada 1 (2017)</td>
+                    </tr>
+                    <tr>
+                        <td>Black Knight</td>
+                        <td>Pase de Batalla</td>
+                        <td>$500+</td>
+                        <td>Temporada 2</td>
+                    </tr>
+                    <tr>
+                        <td>Galaxy</td>
+                        <td>Promoción Samsung</td>
+                        <td>$300+</td>
+                        <td>Limitada</td>
+                    </tr>
+                    <tr>
+                        <td>Travis Scott</td>
+                        <td>1,500 V-Bucks</td>
+                        <td>No disponible</td>
+                        <td>Evento 2020</td>
+                    </tr>
+                </table>
+                
+                <div class="links-container">
+                    <a href="https://www.theverge.com/2021/11/10/22775342/fortnite-travis-scott-skin-removed-astroworld-festival" class="link-button" target="_blank">Artículo sobre Travis Scott</a>
+                    <a href="https://www.pcgamer.com/fortnite-ninja-skin/" class="link-button" target="_blank">Skin de Ninja</a>
+                    <a href="https://www.dexerto.com/fortnite/most-expensive-fortnite-skins-rare-outfits-1725888/" class="link-button" target="_blank">Skins más caras</a>
+                    <a href="https://fortniteintel.com/fortnites-most-controversial-skins/" class="link-button" target="_blank">Skins polémicas</a>
+                    <a href="https://www.epicgames.com/fortnite/news/icon-series" class="link-button" target="_blank">Serie Icono</a>
+                </div>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/9Z6yWQ0Xo8M" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Skins por Rareza y Precio</h2>
+                
+                <p>Fortnite clasifica sus skins en diferentes categorías de rareza, que generalmente determinan su precio y exclusividad:</p>
+                
+                <h3>Precios promedio por rareza:</h3>
+                <ul>
+                    <li><strong>Común (Verde):</strong> 800 V-Bucks</li>
+                    <li><strong>Poco Común (Azul):</strong> 1,200 V-Bucks</li>
+                    <li><strong>Rara (Morado):</strong> 1,500 V-Bucks</li>
+                    <li><strong>Épica (Naranja):</strong> 1,800 V-Bucks</li>
+                    <li><strong>Legendaria (Dorado):</strong> 2,000 V-Bucks</li>
+                </ul>
+                
+                <div class="skin-grid">
+                    <div class="skin-card">
+                        <div class="skin-price">800 V-Bucks</div>
+                        <img src="images/default.jpg" alt="Default">
+                        <div class="skin-info">
+                            <div class="skin-name">Default (Original)</div>
+                            <span class="skin-rarity common">Común</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skin-card">
+                        <div class="skin-price">1,200 V-Bucks</div>
+                        <img src="images/brite-bomber.jpg" alt="Brite Bomber">
+                        <div class="skin-info">
+                            <div class="skin-name">Brite Bomber</div>
+                            <span class="skin-rarity uncommon">Poco Común</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skin-card">
+                        <div class="skin-price">1,500 V-Bucks</div>
+                        <img src="images/raven.jpg" alt="Raven">
+                        <div class="skin-info">
+                            <div class="skin-name">Raven</div>
+                            <span class="skin-rarity rare">Rara</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skin-card">
+                        <div class="skin-price">2,000 V-Bucks</div>
+                        <img src="images/ice-king.jpg" alt="Ice King">
+                        <div class="skin-info">
+                            <div class="skin-name">Ice King</div>
+                            <span class="skin-rarity legendary">Legendaria</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Skins más baratas vs más caras:</h3>
+                <table>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Skin</th>
+                        <th>Precio</th>
+                        <th>Disponibilidad</th>
+                    </tr>
+                    <tr>
+                        <td>Más barata</td>
+                        <td>Default (Original)</td>
+                        <td>Gratis</td>
+                        <td>Siempre</td>
+                    </tr>
+                    <tr>
+                        <td>Más barata premium</td>
+                        <td>Bunny Brawler</td>
+                        <td>800 V-Bucks</td>
+                        <td>Eventos</td>
+                    </tr>
+                    <tr>
+                        <td>Más cara individual</td>
+                        <td>Galaxia</td>
+                        <td>Promoción ($100+)</td>
+                        <td>Limitada</td>
+                    </tr>
+                    <tr>
+                        <td>Más cara pack</td>
+                        <td>Ultimate Pack</td>
+                        <td>8,000 V-Bucks</td>
+                        <td>Temporada X</td>
+                    </tr>
+                </table>
+                
+                <p>Curiosamente, algunas de las skins más valiosas no fueron las más caras originalmente, sino que ganaron valor por su exclusividad y rareza con el tiempo.</p>
+                
+                <div class="links-container">
+                    <a href="https://fortnite.fandom.com/wiki/Rarity" class="link-button" target="_blank">Sistema de Rareza</a>
+                    <a href="https://www.dexerto.com/fortnite/most-expensive-fortnite-skins-rare-outfits-1725888/" class="link-button" target="_blank">Skins más valiosas</a>
+                    <a href="https://fortnite.gg/skins?price=800" class="link-button" target="_blank">Skins baratas</a>
+                    <a href="https://www.epicgames.com/fortnite/en-US/vbucks-card" class="link-button" target="_blank">Comprar V-Bucks</a>
+                    <a href="https://www.reddit.com/r/FortniteBR/comments/a1zq9o/skin_price_tiers_explained/" class="link-button" target="_blank">Explicación precios</a>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>© 2023 Skins de Fortnite - Todos los derechos reservados a Epic Games</p>
+        </footer>
+    </div>
+</body>
+</html>
