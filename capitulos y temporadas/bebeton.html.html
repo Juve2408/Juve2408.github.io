@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite: Capítulos y Temporadas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF4655;
+            --primary-dark: #cc2a39;
+            --secondary: #1E90FF;
+            --dark: #0F1923;
+            --light: #F8F8F8;
+            --accent: #FFD700;
+            --gray: #2A2A2A;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding-top: 56px;
+        }
+
+        .teko-font {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(15, 25, 35, 0.8), rgba(15, 25, 35, 0.8)), url('images/fortnite-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .btn-fortnite {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-fortnite:hover {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .table-custom {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .table-custom thead {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .rarity-badge {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .common { background-color: #5E5E5E; color: white; }
+        .uncommon { background-color: #2E8B57; color: white; }
+        .rare { background-color: #B8860B; color: white; }
+        .epic { background-color: #9370DB; color: white; }
+        .legendary { background-color: #FF8C00; color: white; }
+    </style>
+</head>
+<body>
+    <header data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand teko-font" href="index.html">FORTNITE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item"><a class="nav-link" href="d.html">Resumen</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Historia</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Desarrollo</a></li>
+                                <li><a class="dropdown-item" href="Hbatleroyale.html">Battle Royale</a></li>
+                                <li><a class="dropdown-item" href="#">Capítulos y Temporadas</a></li>
+                                <li><a class="dropdown-item" href="eventos importantes.html">Eventos importantes</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Modos de juego</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="btleroyale.html">Battle Royale</a></li>
+                                <li><a class="dropdown-item" href="salvar_al_mundo.html">Salvar el mundo</a></li>
+                                <li><a class="dropdown-item" href="modocreativo.html">Creative</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personajes</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="personaskins.html">Skins populares</a></li>
+                                <li><a class="dropdown-item" href="#">Colaboraciones</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contenido</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="armas.html">Armas</a></li>
+                                <li><a class="dropdown-item" href="mapas.html">Mapas</a></li>
+                                <li><a class="dropdown-item" href="#">Eventos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Redes sociales</a></li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-light me-2" type="button">Iniciar sesión</button>
+                        <button class="btn btn-fortnite" type="button">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="teko-font display-4 mb-3">CAPÍTULOS Y TEMPORADAS</h1>
+            <p class="lead">Explora la evolución de Fortnite a través de su historia</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="chapters" class="mb-5">
+            <h2 class="section-title teko-font">Capítulos de Fortnite</h2>
+            <p class="mb-4">Fortnite ha evolucionado a través de varios capítulos, cada uno introduciendo cambios significativos en el mapa, la historia y la jugabilidad. Desde el Capítulo 1 con su mapa original hasta las innovaciones más recientes, cada etapa ha dejado su marca en la comunidad.</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/chapter1.jpg" class="card-img-top" alt="Capítulo 1">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Capítulo 1</h5>
+                            <p class="card-text">El inicio de todo, desde la temporada 1 hasta la 10. Introdujo el concepto de temporadas y el famoso "Battle Pass".</p>
+                            <ul class="mb-3">
+                                <li>10 temporadas</li>
+                                <li>Mapa original</li>
+                                <li>Evento final: El Agujero Negro</li>
+                            </ul>
+                            <a href="#" class="btn btn-fortnite">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/chapter2.jpg" class="card-img-top" alt="Capítulo 2">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Capítulo 2</h5>
+                            <p class="card-text">Un nuevo mapa, mecánicas de natación y pesca, y la introducción de NPCs.</p>
+                            <ul class="mb-3">
+                                <li>8 temporadas</li>
+                                <li>Nuevo mapa</li>
+                                <li>Evento final: La Explosión</li>
+                            </ul>
+                            <a href="#" class="btn btn-fortnite">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/chapter3.jpg" class="card-img-top" alt="Capítulo 3">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Capítulo 3</h5>
+                            <p class="card-text">Deslizamiento, tornados y nuevos biomas. La guerra entre La Fundación y Los Siete.</p>
+                            <ul class="mb-3">
+                                <li>4 temporadas</li>
+                                <li>Deslizamiento añadido</li>
+                                <li>Evento final: Colapso</li>
+                            </ul>
+                            <a href="#" class="btn btn-fortnite">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h3 class="teko-font mb-3">Resumen de Capítulos</h3>
+                <div class="table-responsive">
+                    <table class="table table-custom table-hover">
+                        <thead>
+                            <tr>
+                                <th>Capítulo</th>
+                                <th>Temporadas</th>
+                                <th>Duración</th>
+                                <th>Cambio principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Capítulo 1</td>
+                                <td>10</td>
+                                <td>Oct 2017 - Oct 2019</td>
+                                <td>Mapa original</td>
+                            </tr>
+                            <tr>
+                                <td>Capítulo 2</td>
+                                <td>8</td>
+                                <td>Oct 2019 - Dic 2021</td>
+                                <td>Nuevo mapa</td>
+                            </tr>
+                            <tr>
+                                <td>Capítulo 3</td>
+                                <td>4</td>
+                                <td>Dic 2021 - Dic 2022</td>
+                                <td>Deslizamiento</td>
+                            </tr>
+                            <tr>
+                                <td>Capítulo 4</td>
+                                <td>4</td>
+                                <td>Dic 2022 - Nov 2023</td>
+                                <td>Realidad Unificada</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h3 class="teko-font mb-3">Video Resumen</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/WJW-bzXZM8M" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h3 class="teko-font mb-3">Enlaces Relacionados</h3>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="https://fortnite.fandom.com/wiki/Chapter_1" class="btn btn-outline-primary" target="_blank">Wiki Capítulo 1</a>
+                    <a href="https://fortnite.fandom.com/wiki/Chapter_2" class="btn btn-outline-primary" target="_blank">Wiki Capítulo 2</a>
+                    <a href="https://fortnite.fandom.com/wiki/Chapter_3" class="btn btn-outline-primary" target="_blank">Wiki Capítulo 3</a>
+                    <a href="https://www.epicgames.com/fortnite" class="btn btn-outline-primary" target="_blank">Sitio Oficial</a>
+                    <a href="https://www.reddit.com/r/FortNiteBR/" class="btn btn-outline-primary" target="_blank">Comunidad Reddit</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="seasons" class="mb-5">
+            <h2 class="section-title teko-font">Temporadas Destacadas</h2>
+            <p class="mb-4">Cada temporada de Fortnite trae nuevos contenidos, skins y cambios en el mapa que mantienen fresco el juego. Algunas temporadas han sido particularmente memorables por sus innovaciones o eventos especiales.</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/season1.jpg" class="card-img-top" alt="Temporada 1">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Temporada 2 (Capítulo 1)</h5>
+                            <p class="card-text">Introdujo el primer Battle Pass con skins icónicas como el Caballero Negro.</p>
+                            <ol class="mb-3">
+                                <li>Primer Battle Pass premium</li>
+                                <li>Introducción de misiones</li>
+                                <li>Evento: Rocket Launch</li>
+                            </ol>
+                            <a href="#" class="btn btn-fortnite">Ver skins</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/season2.jpg" class="card-img-top" alt="Temporada 2">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Temporada 4 (Capítulo 1)</h5>
+                            <p class="card-text">Tema de superhéroes con colaboración de Marvel. Introdujo los meteoritos.</p>
+                            <ol class="mb-3">
+                                <li>Skins de superhéroes</li>
+                                <li>Mapa cambiado por meteoritos</li>
+                                <li>Nuevas armas</li>
+                            </ol>
+                            <a href="#" class="btn btn-fortnite">Ver skins</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/season3.jpg" class="card-img-top" alt="Temporada 3">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Temporada 5 (Capítulo 2)</h5>
+                            <p class="card-text">Tema de cazadores de tesoros con NPCs y la introducción de la mandíbula.</p>
+                            <ol class="mb-3">
+                                <li>Primeros NPCs</li>
+                                <li>Nueva mecánica: Mandíbula</li>
+                                <li>Evento: La Explosión</li>
+                            </ol>
+                            <a href="#" class="btn btn-fortnite">Ver skins</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h3 class="teko-font mb-3">Resumen de Temporadas</h3>
+                <div class="table-responsive">
+                    <table class="table table-custom table-hover">
+                        <thead>
+                            <tr>
+                                <th>Temporada</th>
+                                <th>Capítulo</th>
+                                <th>Tema</th>
+                                <th>Skin destacada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Temporada 2</td>
+                                <td>1</td>
+                                <td>Caballeros</td>
+                                <td>Black Knight</td>
+                            </tr>
+                            <tr>
+                                <td>Temporada 4</td>
+                                <td>1</td>
+                                <td>Superhéroes</td>
+                                <td>Omega</td>
+                            </tr>
+                            <tr>
+                                <td>Temporada 5</td>
+                                <td>2</td>
+                                <td>Cazadores</td>
+                                <td>Mandalorian</td>
+                            </tr>
+                            <tr>
+                                <td>Temporada 7</td>
+                                <td>2</td>
+                                <td>Alienígenas</td>
+                                <td>Superman</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h3 class="teko-font mb-3">Video de Temporadas</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/9Z6yWQ0Xo8M" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h3 class="teko-font mb-3">Más Información</h3>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="https://fortnite.fandom.com/wiki/Season_X" class="btn btn-outline-primary" target="_blank">Wiki Temporadas</a>
+                    <a href="https://fnbr.co/seasons" class="btn btn-outline-primary" target="_blank">Todas las temporadas</a>
+                    <a href="https://www.dexerto.com/fortnite/best-fortnite-seasons-ranked-1725890/" class="btn btn-outline-primary" target="_blank">Mejores temporadas</a>
+                    <a href="https://fortniteintel.com/fortnite-season-release-dates/" class="btn btn-outline-primary" target="_blank">Fechas de lanzamiento</a>
+                    <a href="https://www.epicgames.com/fortnite/competitive/news" class="btn btn-outline-primary" target="_blank">Noticias oficiales</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="events" class="mb-5">
+            <h2 class="section-title teko-font">Eventos Importantes</h2>
+            <p class="mb-4">Los eventos en vivo de Fortnite son experiencias únicas que redefinen el juego. Desde conciertos hasta cambios masivos en el mapa, estos momentos han marcado hitos en la historia del juego.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="images/chapter1.jpg" class="card-img-top" alt="Evento Agujero Negro">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">El Agujero Negro</h5>
+                            <p class="card-text">El evento que cerró el Capítulo 1, dejando el juego inaccesible por 2 días antes de revelar el nuevo mapa.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="rarity-badge legendary">Legendario</span>
+                                <a href="#" class="btn btn-fortnite">Ver análisis</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="images/chapter2.jpg" class="card-img-top" alt="Evento Travis Scott">
+                        <div class="card-body">
+                            <h5 class="card-title teko-font">Concierto de Travis Scott</h5>
+                            <p class="card-text">Un espectáculo astronómico que reunió a millones de jugadores en un concierto virtual sin precedentes.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="rarity-badge epic">Épico</span>
+                                <a href="#" class="btn btn-fortnite">Ver análisis</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h3 class="teko-font mb-3">Más sobre Eventos</h3>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="https://fortnite.fandom.com/wiki/Events" class="btn btn-outline-primary" target="_blank">Todos los eventos</a>
+                    <a href="https://www.theverge.com/2020/4/23/21232640/fortnite-travis-scott-concert-astronomical-live-event" class="btn btn-outline-primary" target="_blank">Travis Scott</a>
+                    <a href="https://www.polygon.com/2019/10/13/20912133/fortnite-black-hole-event-chapter-2" class="btn btn-outline-primary" target="_blank">Agujero Negro</a>
+                    <a href="https://www.epicgames.com/fortnite/news" class="btn btn-outline-primary" target="_blank">Próximos eventos</a>
+                    <a href="https://www.reddit.com/r/FortNiteBR/search?q=event&restrict_sr=1" class="btn btn-outline-primary" target="_blank">Discusión</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="teko-font mb-3">Fortnite</h5>
+                    <p>Fan site no oficial sobre la historia y contenido de Fortnite. Todos los derechos reservados a Epic Games.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="teko-font mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Inicio</a></li>
+                        <li><a href="#chapters" class="text-white">Capítulos</a></li>
+                        <li><a href="#seasons" class="text-white">Temporadas</a></li>
+                        <li><a href="#events" class="text-white">Eventos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="teko-font mb-3">Redes Sociales</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2023 Fortnite Fan Site. No afiliado con Epic Games.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Botón para volver arriba
+        window.addEventListener('scroll', function() {
+            var backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Scroll suave para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Efecto hover para tarjetas
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+            });
+        });
+    </script>
+</body>
+</html>
