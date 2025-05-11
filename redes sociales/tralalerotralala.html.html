@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite - Redes Sociales</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF4655;
+            --primary-dark: #cc2a39;
+            --secondary: #1E90FF;
+            --dark: #0F1923;
+            --light: #F8F8F8;
+            --accent: #FFD700;
+            --gray: #2A2A2A;
+            --bg-gradient: linear-gradient(135deg, #1E2A3A 0%, #0F1923 100%);
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--light);
+            padding-top: 70px;
+        }
+
+        .fortnite-font {
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Navbar estilo Fortnite */
+        .navbar-fortnite {
+            background: rgba(15, 25, 35, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,70,85,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--accent) !important;
+        }
+
+        .nav-link {
+            position: relative;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        /* Hero section */
+        .hero-social {
+            background: url('images/social-bg.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+
+        .hero-social:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(15,25,35,0.9) 0%, rgba(15,25,35,0.7) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Tarjetas de redes sociales */
+        .social-card {
+            background: rgba(30, 42, 58, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255,70,85,0.2);
+            border-color: rgba(255,70,85,0.5);
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .twitter-bg {
+            background: linear-gradient(135deg, #1DA1F2 0%, #1991da 100%);
+        }
+
+        .instagram-bg {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .youtube-bg {
+            background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+        }
+
+        .tiktok-bg {
+            background: linear-gradient(135deg, #25F4EE 0%, #FE2C55 100%);
+        }
+
+        .discord-bg {
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+        }
+
+        /* Sección de estadísticas */
+        .stats-card {
+            background: rgba(30, 42, 58, 0.6);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        /* Sección de influencers */
+        .creator-card {
+            background: rgba(30, 42, 58, 0.6);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .creator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,70,85,0.2);
+        }
+
+        .creator-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .creator-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(15, 25, 35, 0.95);
+            padding: 50px 0 20px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255,70,85,0.3);
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Botón flotante */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(255,70,85,0.4);
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: white;
+            background: var(--primary-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-social {
+                padding: 70px 0;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-fortnite fixed-top">
+        <div class="container">
+            <a class="navbar-brand fortnite-font" href="#">
+                <i class="fas fa-gamepad me-2"></i>FORTNITE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="noticias.html">Noticias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="redes.html">Redes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Comunidad
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Eventos</a></li>
+                            <li><a class="dropdown-item" href="#">Torneos</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Creatores</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <button class="btn btn-outline-light btn-sm">Iniciar sesión</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-social">
+        <div class="container hero-content text-center">
+            <h1 class="fortnite-font display-4 mb-3">COMUNIDAD FORTNITE</h1>
+            <p class="lead mb-4">Conéctate con la comunidad global de Fortnite a través de nuestras redes sociales</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="btn btn-primary px-4"><i class="fab fa-twitter me-2"></i>Twitter</a>
+                <a href="#" class="btn btn-danger px-4"><i class="fab fa-instagram me-2"></i>Instagram</a>
+                <a href="#" class="btn btn-dark px-4"><i class="fab fa-tiktok me-2"></i>TikTok</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Redes Sociales Oficiales -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="fortnite-font text-center mb-5">REDES SOCIALES OFICIALES</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="social-card p-4 text-center h-100">
+                        <div class="social-icon twitter-bg mx-auto">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <h3 class="fortnite-font">Twitter</h3>
+                        <p>Sigue la cuenta oficial para anuncios, actualizaciones y noticias en tiempo real.</p>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-outline-light w-100">Seguir @FortniteGame</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="social-card p-4 text-center h-100">
+                        <div class="social-icon instagram-bg mx-auto">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3 class="fortnite-font">Instagram</h3>
+                        <p>Contenido visual exclusivo, skins previews y momentos destacados del juego.</p>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-outline-light w-100">Seguir @Fortnite</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="social-card p-4 text-center h-100">
+                        <div class="social-icon youtube-bg mx-auto">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <h3 class="fortnite-font">YouTube</h3>
+                        <p>Trailers, gameplays, eventos especiales y contenido exclusivo para la comunidad.</p>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-outline-light w-100">Suscribirse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="social-card p-4 text-center h-100">
+                        <div class="social-icon tiktok-bg mx-auto">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <h3 class="fortnite-font">TikTok</h3>
+                        <p>Contenido divertido, clips virales y momentos épicos de la comunidad Fortnite.</p>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-outline-light w-100">Seguir @Fortnite</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="social-card p-4 text-center h-100">
+                        <div class="social-icon discord-bg mx-auto">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3 class="fortnite-font">Discord</h3>
+                        <p>Únete a la conversación con millones de jugadores en el servidor oficial de Discord.</p>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-outline-light w-100">Unirse al servidor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="fortnite-font text-center mb-5">FORTNITE EN REDES SOCIALES</h2>
+            
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stats-card text-center">
+                        <div class="stat-number">15M+</div>
+                        <p>Seguidores en Twitter</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="stats-card text-center">
+                        <div class="stat-number">23M+</div>
+                        <p>Seguidores en Instagram</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="stats-card text-center">
+                        <div class="stat-number">12M+</div>
+                        <p>Suscriptores en YouTube</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="stats-card text-center">
+                        <div class="stat-number">800K+</div>
+                        <p>Miembros en Discord</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creatores Destacados -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="fortnite-font text-center mb-5">CREADORES DESTACADOS</h2>
+            <p class="text-center mb-5">Conoce a algunos de los creadores de contenido más populares de la comunidad Fortnite</p>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="creator-card">
+                        <img src="images/ninja-creator.jpg" class="creator-img w-100" alt="Ninja">
+                        <div class="p-3">
+                            <h5 class="fortnite-font">Ninja</h5>
+                            <div class="d-flex justify-content-between">
+                                <span><i class="fab fa-twitter text-primary"></i> @Ninja</span>
+                                <span class="text-muted">28M</span>
+                            </div>
+                        </div>
+                        <div class="creator-badge">Leyenda</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="creator-card">
+                        <img src="images/tsm-creator.jpg" class="creator-img w-100" alt="TSM Myth">
+                        <div class="p-3">
+                            <h5 class="fortnite-font">TSM Myth</h5>
+                            <div class="d-flex justify-content-between">
+                                <span><i class="fab fa-twitter text-primary"></i> @TSM_Myth</span>
+                                <span class="text-muted">4.5M</span>
+                            </div>
+                        </div>
+                        <div class="creator-badge">Competitivo</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="creator-card">
+                        <img src="images/lufu-creator.jpg" class="creator-img w-100" alt="Loserfruit">
+                        <div class="p-3">
+                            <h5 class="fortnite-font">Loserfruit</h5>
+                            <div class="d-flex justify-content-between">
+                                <span><i class="fab fa-twitter text-primary"></i> @loserfruit</span>
+                                <span class="text-muted">3.2M</span>
+                            </div>
+                        </div>
+                        <div class="creator-badge">Skin Oficial</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="creator-card">
+                        <img src="images/sypher-creator.jpg" class="creator-img w-100" alt="SypherPK">
+                        <div class="p-3">
+                            <h5 class="fortnite-font">SypherPK</h5>
+                            <div class="d-flex justify-content-between">
+                                <span><i class="fab fa-twitter text-primary"></i> @SypherPK</span>
+                                <span class="text-muted">5.8M</span>
+                            </div>
+                        </div>
+                        <div class="creator-badge">Estrategias</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary px-4">Ver más creadores</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos en Redes -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="fortnite-font text-center mb-5">EVENTOS EN REDES</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card bg-transparent border-light mb-4">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="images/event-twitter.jpg" class="img-fluid rounded-start h-100" alt="Twitter Event">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title fortnite-font">#FortniteFridays</h5>
+                                    <p class="card-text">Todos los viernes, participa en nuestro hashtag oficial y comparte tus mejores momentos.</p>
+                                    <p class="card-text"><small class="text-muted">Próximo evento: 15 de diciembre</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card bg-transparent border-light mb-4">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="images/event-instagram.jpg" class="img-fluid rounded-start h-100" alt="Instagram Event">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title fortnite-font">Fan Art Showcase</h5>
+                                    <p class="card-text">Envía tus creaciones artísticas de Fortnite para tener la oportunidad de ser destacado.</p>
+                                    <p class="card-text"><small class="text-muted">Abierto permanentemente</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="fortnite-font mb-3"><i class="fas fa-gamepad me-2"></i>FORTNITE</h4>
+                    <p>Síguenos en nuestras redes sociales para no perderte ningún contenido exclusivo, eventos especiales y las últimas noticias.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-tiktok fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-discord fa-lg"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-6 mb-4">
+                    <h5 class="fortnite-font mb-3">Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light">Inicio</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Noticias</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Redes</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Eventos</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-2 col-6 mb-4">
+                    <h5 class="fortnite-font mb-3">Comunidad</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light">Creadores</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Torneos</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Fan Art</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Foros</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Soporte</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5 class="fortnite-font mb-3">Boletín informativo</h5>
+                    <p>Suscríbete para recibir las últimas noticias y actualizaciones directamente en tu correo.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="Tu email">
+                        <button class="btn btn-primary" type="button">Suscribirse</button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">© 2023 Fortnite Social. No afiliado con Epic Games.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-links">
+                        <a href="#" class="text-light">Términos</a>
+                        <a href="#" class="text-light">Privacidad</a>
+                        <a href="#" class="text-light">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante -->
+    <a href="#" class="floating-btn">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Botón flotante
+        window.addEventListener('scroll', function() {
+            const floatingBtn = document.querySelector('.floating-btn');
+            if (window.pageYOffset > 300) {
+                floatingBtn.style.opacity = '1';
+                floatingBtn.style.visibility = 'visible';
+            } else {
+                floatingBtn.style.opacity = '0';
+                floatingBtn.style.visibility = 'hidden';
+            }
+        });
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Efecto hover para tarjetas
+        document.querySelectorAll('.social-card, .creator-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 15px 30px rgba(255,70,85,0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
