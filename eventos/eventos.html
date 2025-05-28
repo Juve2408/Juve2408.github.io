@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos más importantes de Fortnite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f0f0f0;
+    }
+
+    header {
+      background-color: #1a1a2e;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      color: #ff00c8;
+      text-shadow: 0 0 10px #ff00c855;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #a29bfe;
+    }
+
+    .container {
+      padding: 50px 10%;
+    }
+
+    .event {
+      background-color: #2d2d44;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .event:hover {
+      transform: scale(1.03);
+      background-color: #3d3d60;
+    }
+
+    .event h3 {
+      margin-top: 0;
+      color: #00ffd5;
+      text-shadow: 0 0 5px #00ffd5aa;
+    }
+
+    .event p {
+      line-height: 1.7;
+      color: #dcdde1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #181818;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff00c8;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #c400a1;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .container {
+        padding: 30px 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Eventos Épicos de Fortnite</h1>
+    <p>Estos son los eventos más conocidos de fornite</p>
+  </header>
+
+  <div class="container" id="eventos">
+    <!-- Eventos se insertan aquí -->
+  </div>
+
+  <script>
+    const eventos = [
+      {
+        titulo: "El Agujero Negro (The End - Capítulo 1)",
+        descripcion: "Uno de los eventos más memorables, donde el mapa entero fue absorbido por un agujero negro. El juego estuvo inactivo durante casi dos días antes del lanzamiento del Capítulo 2."
+      },
+      {
+        titulo: "Evento de Galactus (Capítulo 2, Temporada 4)",
+        descripcion: "Una épica batalla contra el villano Galactus del universo Marvel. Millones de jugadores participaron en tiempo real."
+      },
+      {
+        titulo: "Travis Scott: Astronomical",
+        descripcion: "Un evento musical con una experiencia visual impresionante. Más de 12 millones de jugadores asistieron en simultáneo."
+      },
+      {
+        titulo: "La Colisión (Final Capítulo 3)",
+        descripcion: "Un evento que marcó el fin del Capítulo 3 con la destrucción parcial de la isla, liderado por el equipo de 'Los Siete'."
+      },
+      {
+        titulo: "Fractura (Inicio Capítulo 4)",
+        descripcion: "El universo se rompe y forma una nueva isla, dando inicio al Capítulo 4 con una nueva tecnología gráfica en Unreal Engine 5."
+      }
+    ];
+
+    const contenedor = document.getElementById("eventos");
+
+    eventos.forEach(evento => {
+      const div = document.createElement("div");
+      div.className = "event";
+      div.innerHTML = `<h3>${evento.titulo}</h3><p>${evento.descripcion}</p>`;
+      contenedor.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
