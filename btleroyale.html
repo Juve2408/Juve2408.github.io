@@ -235,6 +235,91 @@
             color: var(--primary);
         }
         
+        /* Botón de consejos flotante */
+        .btn-consejos {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-consejos:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
+        }
+        
+        /* Estilos para el popup */
+        .popup-fortnite {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--secondary);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            max-width: 90%;
+            width: 400px;
+            text-align: center;
+            border: 2px solid var(--accent);
+            font-family: inherit;
+            display: none;
+        }
+        
+        .popup-fortnite h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .popup-fortnite ul {
+            text-align: left;
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .popup-fortnite .btn-cerrar {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-fortnite .btn-cerrar:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        
+        /* Fondo oscuro cuando aparece el popup */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             header {
@@ -260,6 +345,19 @@
             
             .skin-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .popup-fortnite {
+                width: 90%;
+                padding: 20px;
+            }
+            
+            .btn-consejos {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -536,6 +634,24 @@
         <p>Este sitio no está afiliado con Epic Games</p>
     </footer>
 
+    <!-- Botón flotante para consejos -->
+    <button class="btn-consejos" id="btnConsejos">💡</button>
+
+    <!-- Popup de consejos -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup-fortnite" id="popupFortnite">
+        <h4>🔥 Consejo Pro de Fortnite 🔥</h4>
+        <p>¿Sabías que en la temporada actual puedes obtener <strong>XP extra</strong> completando estos desafíos?</p>
+        <ul>
+            <li>Colecciona 3 Llaves de Bóveda en un solo juego</li>
+            <li>Elimina oponentes con armas de la nueva temporada</li>
+            <li>Visita todos los Puntos de Interés nuevos</li>
+            <li>Completa 3 misiones de NPC en una partida</li>
+        </ul>
+        <p style="font-size: 0.9em; color: var(--text-light); margin-top: 10px;">¡Revisa la pestaña de Desafíos para no perderte ninguna recompensa!</p>
+        <button class="btn-cerrar" id="btnCerrarPopup">Entendido</button>
+    </div>
+
     <script>
         // Scroll suave para navegación
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -560,6 +676,48 @@
                 card.style.boxShadow = '';
             });
         });
+
+        // Funcionalidad del popup de consejos
+        const btnConsejos = document.getElementById('btnConsejos');
+        const popupFortnite = document.getElementById('popupFortnite');
+        const overlay = document.getElementById('overlay');
+        const btnCerrarPopup = document.getElementById('btnCerrarPopup');
+
+        // Mostrar popup al hacer clic en el botón de consejos
+        btnConsejos.addEventListener('click', () => {
+            popupFortnite.style.display = 'block';
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Evitar scroll cuando el popup está abierto
+        });
+
+        // Cerrar popup al hacer clic en el botón de cerrar o en el overlay
+        btnCerrarPopup.addEventListener('click', cerrarPopup);
+        overlay.addEventListener('click', cerrarPopup);
+
+        // Función para cerrar el popup
+        function cerrarPopup() {
+            popupFortnite.style.display = 'none';
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+
+        // Cerrar popup con la tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && popupFortnite.style.display === 'block') {
+                cerrarPopup();
+            }
+        });
+
+        // Mostrar automáticamente el popup después de 30 segundos (opcional)
+        setTimeout(() => {
+            // Solo mostrar si no ha interactuado aún
+            if (!localStorage.getItem('popupVisto')) {
+                popupFortnite.style.display = 'block';
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                localStorage.setItem('popupVisto', 'true');
+            }
+        }, 30000);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
